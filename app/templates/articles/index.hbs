@@ -22,10 +22,6 @@
         <td>
           {{#if model.isSaving}}
             <p>Saving...</p>
-          {{else}}
-            {{#if model.isDirty}}
-              <button {{action "save" model}}>Save</button>
-            {{/if}}
           {{/if}}
         </td>
       </tr>
