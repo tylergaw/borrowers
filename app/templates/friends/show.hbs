@@ -2,5 +2,11 @@
   <p>{{model.fullName}}</p>
   <p>{{model.email}}</p>
   <p>{{model.twitter}}</p>
-  <p>{{link-to "Edit" "friends.edit" model}} | <a href="#" {{action "delete" model}}>Delete</a></p>
+  <p>
+    {{link-to "Lend article" "articles.new"}} |
+    {{link-to "Edit" "friends.edit" model}} |
+    <a href="#" {{action "delete" model}}>Delete</a></p>
+</div>
+<div class="articles-container">
+  {{outlet}}
 </div>
