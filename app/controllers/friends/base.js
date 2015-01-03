@@ -24,9 +24,6 @@ export default Ember.Controller.extend({
       }
 
       return false;
-    },
-    cancel: function () {
-      return true;
     }
   }
 });
