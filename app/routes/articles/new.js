@@ -6,6 +6,12 @@ export default Ember.Route.extend({
       friend: this.modelFor('friends/show')
     });
   },
+  deactivate: function () {
+    var model = this.modelFor('articles/new');
+    if (model.get('isNew')) {
+      model.destroyRecord();
+    }
+  },
   actions: {
     save: function () {
       var _this = this,
