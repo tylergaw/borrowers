@@ -1,11 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
-  contentDidChange: function () {
-    console.log('Called when we add or removed an article');
-  }.observes('model.[]'),
+  queryParams: ['showReturned'],
+  showReturned: false,
 
-  stateDidChange: function () {
-    console.log('Called when the state prop changes for any article');
-  }.observes('model.@each.state')
+  filteredResults: function () {
+    var articles = this.get('content').filterBy('state', 'borrowed');
+
+    if (this.get('showReturned')) {
+      articles = this.get('content');
+    }
+
+    return articles;
+  }.property('showReturned')
 });
