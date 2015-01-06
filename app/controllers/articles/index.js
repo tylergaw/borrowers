@@ -5,12 +5,12 @@ export default Ember.ArrayController.extend({
   showReturned: false,
 
   filteredResults: function () {
-    var articles = this.get('content').filterBy('state', 'borrowed');
+    var articles = this.get('model').filterBy('state', 'borrowed');
 
     if (this.get('showReturned')) {
-      articles = this.get('content');
+      articles = this.get('model');
     }
 
     return articles;
-  }.property('showReturned')
+  }.property('showReturned', 'model.length')
 });
